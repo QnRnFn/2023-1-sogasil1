@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final.copy</title>
+    <link rel="stylesheet" href="final_main.css">
+</head>
+<body>
+    
+    <div id="wrap">
+        <div class="header">
+            <!-- -----------상단 메뉴 시작------------------------- -->
+            <div id="alramtop">
+                <div class="toptopcontainer">
+                    <div class="toptopcontent">
+                        <span class="sentence">소프트웨어 개발 실습1 기말 과제 곧 마감!!</span>
+                        <span class="sentence">기간 ~6/19 제출페이지&nbsp;&nbsp;<a href="https://canvas.dongseo.ac.kr/courses/27711/discussion_topics/213481">e-class</a></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="top_menu">
+                <div id="top-wrap">
+                    <a href="./mainmain.html"><img src="./myload.png" title="Home" width="80px"></a>
+                    <nav>
+                        <ul class="innavul">
+                            <li class="innavulli"><a href="htmlmain.html">HTML</a>
+                                <ul>
+                                    <li><a href="htmlmain.html">html1</a></li>
+                                    <li><a href="htmlmain2.html">html2</a></li>
+                                </ul>
+                            </li>
+                            <span>/</span>
+                            <li class="innavulli"><a href="cssmain.html">CSS</a>
+                                <ul>
+                                    <li><a href="cssmain.html">css1</a></li>
+                                </ul>
+                            </li>
+                            <span>/</span>
+                            <li  class="innavulli"><a href="jsmain.html">Java Script</a>
+                                <ul>
+                                    <li><a href="jsmain.html">js1</a></li>
+                                    <li><a href="jsmain2.html">js2</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="search-container">
+                        <input type="text" placeholder="검색" class="search-input">
+                        <button class="search-button">
+                            <img src="search.png" id="searchimage"  width="30px">
+                        <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="topbanner">
+                <img src="./nnat.jpg" alt="">
+            </div> 
+            
+        </div>
+        
+            <!-- ---------------------end of #header ----------------    -->
+        
+        <div id="root">
+            <div id="container">
+            
+            <div id="left-container">
+            
+
+            </div>
+            
+
+            <div id="mid-container">
+                <div>
+                    <p>2023 1학기 소프트웨어 개발실습1 기말 과제</p>
+                    한 학기동안 배운 내용을 정리하는 사이트입니다.
+                    <br>어떠한 태그가 어떠한 상황에서 쓰이는지 설명해놓고
+                    <br>보여줄 수 있는 태그들은 실행버튼을 통해 간단히 어떻게 작동하는지
+                    <br>볼 수 있습니다.
+                </div>
+                <div id="yohansay">
+                    <img src="myload.png" alt="이미지가 없습니다." 
+                        title="yohankimprofessor" id="kim">
+                    <div id="spb">
+                        <img src="speech_bubble.png" alt="이미지가없다고"
+                        title="speech_bubble" id="speech_bubble">
+                        <button id="HTMLbutton">HTML</button>
+                        <button id="CSSbutton">CSS</button>
+                        <button id="JSbutton">JavaScript</button>
+                    </div>
+                    <div id="box">
+                        
+                    </div>
+                </div>
+                <div>
+                <h3> 본 내용은 2023년 1학기 소프트웨어 개발 실습1 수업 자료를 기반으로 만들었습니다.
+                        <br>저작권은 모르겠지만 자료를 만드신 교수님과 페이지를 만든 저희조의 
+                        <br>노력을 감안하여 이 사이트를 사용할 때 마다 감사를 표시하시기바랍니다.
+                </h3>
+                <br>
+                <h2>팀원소개</h2>
+                <h3> 허은민 <br>
+                    류승빈<br>
+                    조휘섭
+
+                </h3>
+                </div>
+            </div>
+
+            <div id="right-container">
+                
+
+            </div>
+        
+
+            
+            </div>
+        </div> 
+        <div id="footer">
+        
+        </div>
+    </div>
+
+<!-- ----------------------------------------------------------------- -->
+
+    <script>
+
+
+// ----main 페이지용 -----맨위의 소프트웨어과제마감알려주는 배너 움직이게하는 js코드
+const sentences = document.querySelectorAll('.sentence');
+let index = 0;
+
+function showNextSentence() {
+    sentences.forEach(sentence => {
+    sentence.classList.remove('active');
+});
+
+    sentences[index].classList.add('active');
+    index = (index + 1) % sentences.length;
+}
+
+function startAnimation() {
+    showNextSentence();
+    setInterval(showNextSentence, 3000);
+}
+
+startAnimation();
+
+// ---main 페이지용 ---강의 아이콘 돌아다니는것-----
+const box = document.getElementById('box');
+        box.classList.add('box');
+
+        const images = ['./pichtml.png', './piccss.png', './picjs.png'];
+        let currentImageIndex = 0;
+
+        function changeImage() {
+        box.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        }
+
+        changeImage();
+        setInterval(changeImage, 3000);
+// ------main 페이지용--------버튼 누르면 교수님의 생각이미지가 바뀌는 코드----
+const speechBubble = document.getElementById('speech_bubble');
+const htmlButton = document.getElementById('HTMLbutton');
+const cssButton = document.getElementById('CSSbutton');
+const jsButton = document.getElementById('JSbutton');
+
+htmlButton.addEventListener('click', function() {
+    speechBubble.src = 'bubble_html.png';
+});
+
+cssButton.addEventListener('click', function() {
+    speechBubble.src = 'bubble_css.png';
+});
+
+jsButton.addEventListener('click', function() {
+    speechBubble.src = 'bubble_js.png';
+});
+// -------전체 페이지용------검색창-------------------------
+const searchButton = document.querySelector('.search-button');
+        const searchInput = document.querySelector('.search-input');
+
+        searchButton.addEventListener('click', function() {
+            const searchTerm = searchInput.value;
+            if (searchTerm.trim() !== '') {
+                const searchURL = `results.html?search=${encodeURIComponent(searchTerm)}`;
+                window.location.href = searchURL;
+            }
+        });
+
+    </script>
+</body>
+</html>
